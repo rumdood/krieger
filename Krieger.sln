@@ -20,6 +20,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Use Cases", "Use Cases", "{
 		Architecture\UseCases\Krieger_UseCase_PawnTry.PNG = Architecture\UseCases\Krieger_UseCase_PawnTry.PNG
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Architecture", "Architecture", "{F06BF052-5821-4420-A2E4-C460F6173536}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System Views", "System Views", "{537CB724-A8AC-4150-85D0-1094E6706DCC}"
+	ProjectSection(SolutionItems) = preProject
+		Architecture\System Views\Attempt_Move.PNG = Architecture\System Views\Attempt_Move.PNG
+		Architecture\System Views\Attempt_Move_Boundaries.PNG = Architecture\System Views\Attempt_Move_Boundaries.PNG
+		Architecture\System Views\Create_Load_Join_Game.PNG = Architecture\System Views\Create_Load_Join_Game.PNG
+		Architecture\System Views\Full_System_Interaction.PNG = Architecture\System Views\Full_System_Interaction.PNG
+		Architecture\System Views\System Static View.PNG = Architecture\System Views\System Static View.PNG
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,5 +44,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{43D5FAA6-3776-44F5-92F0-C70C873EED8D} = {F06BF052-5821-4420-A2E4-C460F6173536}
+		{537CB724-A8AC-4150-85D0-1094E6706DCC} = {F06BF052-5821-4420-A2E4-C460F6173536}
 	EndGlobalSection
 EndGlobal
