@@ -7,7 +7,7 @@
     <ProjectGuid>{77874128-EFF0-4BE6-9231-C60F6A84813A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KriegerCore</RootNamespace>
+    <RootNamespace>Krieger</RootNamespace>
     <AssemblyName>KriegerCore</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -39,9 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Contracts\IBoard.cs" />
+    <Compile Include="Contracts\IPiece.cs" />
+    <Compile Include="Contracts\IReferee.cs" />
+    <Compile Include="Contracts\PieceBase.cs" />
+    <Compile Include="Entities\Board.cs" />
+    <Compile Include="Entities\BoardCoordinate.cs" />
+    <Compile Include="Entities\Enums.cs" />
+    <Compile Include="Entities\Game.cs" />
+    <Compile Include="Pieces\Pawn.cs" />
+    <Compile Include="Entities\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KriegerCore
+namespace Krieger
 {
-    public class Class1
+    public interface IReferee
     {
     }
 }
