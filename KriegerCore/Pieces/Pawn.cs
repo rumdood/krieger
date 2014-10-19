@@ -3,14 +3,20 @@ using System.Collections.Generic;
 
 namespace Krieger
 {
-    public class Pawn : IPiece
+    public class Pawn : Piece
     {
-        public virtual List<BoardCoordinate> GetLegalMovesFromCoordinate(BoardCoordinate origin)
+        public Pawn(PlayerColor color) : base(color) { }
+
+        public override IEnumerable<BoardCoordinate> GetLegalMovesFromCoordinate(BoardCoordinate origin, int boardSize)
         {
-            List<BoardCoordinate> possibleMoves = new List<BoardCoordinate>();
-            var pawnMove = new BoardCoordinate(origin.XCoordinate, origin.YCoordinate + 1);
-            possibleMoves.Add(pawnMove);
-            return possibleMoves;
+            yield return new BoardCoordinate(origin.XCoordinate, origin.YCoordinate + 1); // forward 1
+            yield return new BoardCoordinate(origin.XCoordinate + 1, origin.YCoordinate + 1); // capture diagonal right
+            yield return new BoardCoordinate(origin.XCoordinate - 1, origin.YCoordinate + 1); // capture diagonal left
+
+            if (!HasMoved)
+            {
+                yield return new BoardCoordinate(origin.XCoordinate, origin.YCoordinate + 2); // double-move
+            }
         }
     }
 }

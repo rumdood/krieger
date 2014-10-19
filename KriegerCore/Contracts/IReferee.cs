@@ -8,5 +8,6 @@ namespace Krieger
 {
     public interface IReferee
     {
+        MoveResult MovePiece(Board board, BoardCoordinate start, BoardCoordinate end);
     }
 }

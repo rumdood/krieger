@@ -5,6 +5,6 @@ namespace Krieger
 {
     public interface IPiece
     {
-        List<BoardCoordinate> GetLegalMovesFromCoordinate(BoardCoordinate origin);
+        IEnumerable<BoardCoordinate> GetLegalMovesFromCoordinate(BoardCoordinate origin, int boardSize);
     }
 }

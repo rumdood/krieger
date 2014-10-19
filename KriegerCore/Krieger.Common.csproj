@@ -42,13 +42,20 @@
     <Compile Include="Contracts\IBoard.cs" />
     <Compile Include="Contracts\IPiece.cs" />
     <Compile Include="Contracts\IReferee.cs" />
-    <Compile Include="Contracts\PieceBase.cs" />
     <Compile Include="Entities\Board.cs" />
     <Compile Include="Entities\BoardCoordinate.cs" />
     <Compile Include="Entities\Enums.cs" />
     <Compile Include="Entities\Game.cs" />
+    <Compile Include="Entities\Referee.cs" />
+    <Compile Include="Pieces\Bishop.cs" />
+    <Compile Include="Pieces\King.cs" />
+    <Compile Include="Pieces\Knight.cs" />
+    <Compile Include="Pieces\MoveStraightDecorator.cs" />
     <Compile Include="Pieces\Pawn.cs" />
     <Compile Include="Entities\Player.cs" />
+    <Compile Include="Pieces\Piece.cs" />
+    <Compile Include="Pieces\Queen.cs" />
+    <Compile Include="Pieces\Rook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

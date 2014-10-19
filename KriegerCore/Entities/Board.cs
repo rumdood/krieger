@@ -6,18 +6,20 @@ namespace Krieger
 {
     public class Board : IBoard
     {
-        public const int MaximumSize = 8;
-        public const int MinimumSize = 1;
+        private const int MinimumSize = 1;
 
-        private readonly Dictionary<BoardCoordinate, IPiece> _pieces = new Dictionary<BoardCoordinate, IPiece>();
+        private readonly Dictionary<BoardCoordinate, Piece> _pieces = new Dictionary<BoardCoordinate, Piece>();
 
-        public Board()
+        public int BoardSize { get; private set; }
+
+        public Board(int boardSize)
         {
+            BoardSize = boardSize;
         }
 
-        public void AddPiece(IPiece piece, BoardCoordinate location)
+        public void AddPiece(Piece piece, BoardCoordinate location)
         {
-            if (location.IsValidForBoard(MaximumSize))
+            if (location.IsValidForBoard(BoardSize))
             {
                 if (!_pieces.ContainsKey(location))
                 {
@@ -34,8 +36,12 @@ namespace Krieger
             }
         }
 
+        public void RemovePiece(BoardCoordinate location)
+        {
+            _pieces.Remove(location);
+        }
 
-        public IPiece GetPiece(BoardCoordinate location)
+        public Piece GetPiece(BoardCoordinate location)
         {
             if (_pieces.ContainsKey(location))
             {

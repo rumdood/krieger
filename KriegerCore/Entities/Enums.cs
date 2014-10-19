@@ -7,4 +7,11 @@ namespace Krieger
         White,
         Black
     }
+
+    public enum MoveResult
+    {
+        No,
+        Yes,
+        Capture
+    }
 }

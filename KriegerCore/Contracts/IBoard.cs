@@ -4,7 +4,8 @@ namespace Krieger
 {
     public interface IBoard
     {
-        void AddPiece(IPiece piece, BoardCoordinate location);
-        IPiece GetPiece(BoardCoordinate location);
+        void AddPiece(Piece piece, BoardCoordinate location);
+        void RemovePiece(BoardCoordinate location);
+        Piece GetPiece(BoardCoordinate location);
     }
 }
