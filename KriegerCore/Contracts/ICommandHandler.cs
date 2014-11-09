@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Krieger
 {
-    public interface IReferee
+    public interface ICommandHandler<T>
     {
-        
+        T Result { get; }
+        void Execute();
     }
 }

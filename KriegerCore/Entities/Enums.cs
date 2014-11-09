@@ -14,4 +14,12 @@ namespace Krieger
         Yes,
         Capture
     }
+
+    public enum MoveDirection
+    {
+        Horizontal,
+        Vertical,
+        Diagonal,
+        Strange
+    }
 }

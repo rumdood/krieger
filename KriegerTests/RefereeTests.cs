@@ -35,7 +35,7 @@ namespace Krieger.Tests
             [Test()]
             public void Move_Piece_To_Invalid_Location_Returns_No()
             {
-                var moveResult = _referee.MovePiece(_board, _whiteStart, new BoardCoordinate(2, 3));
+                var moveResult = _referee.TryMovePiece(_board, _whiteStart, new BoardCoordinate(2, 3));
                 Assert.AreEqual(MoveResult.No, moveResult);
             }
 
@@ -45,7 +45,7 @@ namespace Krieger.Tests
                 _blackStart = new BoardCoordinate(1, 4);
                 _board.AddPiece(_blackQueen, _blackStart);
 
-                var moveResult = _referee.MovePiece(_board, _whiteStart, new BoardCoordinate(1, 8));
+                var moveResult = _referee.TryMovePiece(_board, _whiteStart, new BoardCoordinate(1, 8));
                 Assert.AreEqual(MoveResult.No, moveResult);
             }
 
@@ -55,7 +55,7 @@ namespace Krieger.Tests
                 _blackStart = new BoardCoordinate(4, 1);
                 _board.AddPiece(_blackQueen, _blackStart);
 
-                var moveResult = _referee.MovePiece(_board, _whiteStart, new BoardCoordinate(8, 1));
+                var moveResult = _referee.TryMovePiece(_board, _whiteStart, new BoardCoordinate(8, 1));
                 Assert.AreEqual(MoveResult.No, moveResult);
             }
 
@@ -65,7 +65,7 @@ namespace Krieger.Tests
                 _blackStart = new BoardCoordinate(4, 4);
                 _board.AddPiece(_blackQueen, _blackStart);
 
-                var moveResult = _referee.MovePiece(_board, _whiteStart, new BoardCoordinate(8, 8));
+                var moveResult = _referee.TryMovePiece(_board, _whiteStart, new BoardCoordinate(8, 8));
                 Assert.AreEqual(MoveResult.No, moveResult);
             }
 
@@ -81,7 +81,7 @@ namespace Krieger.Tests
                 _board.AddPiece(knight, knightStart);
 
                 var destination = new BoardCoordinate(3, 3);
-                var moveResult = _referee.MovePiece(_board, knightStart, destination);
+                var moveResult = _referee.TryMovePiece(_board, knightStart, destination);
 
                 Assert.AreEqual(MoveResult.Yes, moveResult);
             }
@@ -93,7 +93,7 @@ namespace Krieger.Tests
                 _board.AddPiece(_blackQueen, _blackStart);
 
                 var destination = new BoardCoordinate(8, 1);
-                var moveResult = _referee.MovePiece(_board, _whiteStart, destination);
+                var moveResult = _referee.TryMovePiece(_board, _whiteStart, destination);
                 var endPiece = _board.GetPiece(destination);
 
                 Assert.IsTrue(moveResult == MoveResult.Yes && endPiece == _whiteQueen);
@@ -106,8 +106,8 @@ namespace Krieger.Tests
                 _board.AddPiece(_blackQueen, _blackStart);
 
                 var destination = new BoardCoordinate(8, 1);
-                _referee.MovePiece(_board, _whiteStart, destination);
-                var moveBackResult = _referee.MovePiece(_board, destination, _whiteStart);
+                _referee.TryMovePiece(_board, _whiteStart, destination);
+                var moveBackResult = _referee.TryMovePiece(_board, destination, _whiteStart);
 
                 var endPiece = _board.GetPiece(_whiteStart);
 
@@ -121,7 +121,7 @@ namespace Krieger.Tests
                 _blackStart = new BoardCoordinate(1, 4);
                 _board.AddPiece(_blackQueen, _blackStart);
 
-                var moveResult = _referee.MovePiece(_board, _whiteStart, _blackStart);
+                var moveResult = _referee.TryMovePiece(_board, _whiteStart, _blackStart);
                 var endPiece = _board.GetPiece(_blackStart);
 
                 Assert.IsTrue(moveResult == MoveResult.Capture && endPiece == _whiteQueen);
