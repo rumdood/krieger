@@ -25,7 +25,7 @@ namespace Krieger.Tests
         public class Get_Moves : PawnTests
         {
             [Test(), Category("GetLegalMoves")]
-            public void Returns_1_2_When_Passed_1_1()
+            public void Returns_1_2_When_White_Passed_1_1()
             {
                 var legalMoves = _pawn.GetLegalMovesFromCoordinate(_startingLocation, _board.BoardSize);
 
@@ -34,12 +34,32 @@ namespace Krieger.Tests
             }
 
             [Test(), Category("GetLegalMoves")]
-            public void Returns_1_3_When_Passed_1_1_And_Has_Not_Moved()
+            public void Returns_1_3_When_White_Passed_1_1_And_Has_Not_Moved()
             {
                 var legalMoves = _pawn.GetLegalMovesFromCoordinate(_startingLocation, _board.BoardSize);
 
                 var target = new BoardCoordinate(1, 3);
                 Assert.IsTrue(legalMoves.Contains(target));
+            }
+
+            [Test]
+            public void Returns_1_7_When_Black_Passed_1_8()
+            {
+                _pawn = new Pawn(PlayerColor.Black);
+                _startingLocation = new BoardCoordinate(1, 8);
+                var legalMoves = _pawn.GetLegalMovesFromCoordinate(_startingLocation, _board.BoardSize);
+                var target = new BoardCoordinate(1, 7);
+                Assert.IsTrue(legalMoves.Contains(target));
+            }
+
+            [Test]
+            public void Does_Not_Return_1_8_When_Black_Passed_1_7()
+            {
+                _pawn = new Pawn(PlayerColor.Black);
+                _startingLocation = new BoardCoordinate(1, 7);
+                var legalMoves = _pawn.GetLegalMovesFromCoordinate(_startingLocation, _board.BoardSize);
+                var target = new BoardCoordinate(1, 8);
+                Assert.IsFalse(legalMoves.Contains(target));
             }
         }
     }
