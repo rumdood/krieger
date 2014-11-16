@@ -78,28 +78,28 @@ namespace Krieger
             }
         }
 
-        protected MoveResult tryMovePiece(Piece piece, BoardCoordinate start, BoardCoordinate end)
+        protected bool isMovePossible(Piece piece, BoardCoordinate start, BoardCoordinate end)
         {
             var legalMoves = piece.GetLegalMovesFromCoordinate(start, BoardSize);
 
             if (!legalMoves.Contains(end))
             {
-                return MoveResult.No;
+                return false;
             }
 
             var pieceAtDesitination = GetPiece(end);
 
             if (pieceAtDesitination != null && pieceAtDesitination.Color == piece.Color)
             {
-                return MoveResult.No;
+                return false;
             }
 
             if (isMoveBlocked(start, end) && !(piece is Knight))
             {
-                return MoveResult.No;
+                return false;
             }
 
-            return MoveResult.Yes;
+            return true;
         }
 
         public MoveResult MovePiece(BoardCoordinate start, BoardCoordinate end)
@@ -113,13 +113,15 @@ namespace Krieger
 
             RemovePiece(start); // pick up the piece, we'll put it back if we have a problem
 
-            var moveResult = tryMovePiece(piece, start, end);
+            var moveValidated = isMovePossible(piece, start, end);
 
-            if (moveResult == MoveResult.No)
+            if (!moveValidated)
             {
                 AddPiece(piece, start); // put it back where we found it
                 return MoveResult.No;
             }
+
+            var moveResult = MoveResult.Yes;
 
             var capturedPiece = GetPiece(end);
             if (capturedPiece != null)
