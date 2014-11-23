@@ -9,7 +9,7 @@ namespace Krieger
         private const int MinimumSize = 1;
         private const int DefaultBoardSize = 8;
 
-        private readonly Dictionary<BoardCoordinate, Piece> _pieces = new Dictionary<BoardCoordinate, Piece>();
+        private Dictionary<BoardCoordinate, Piece> _pieces = new Dictionary<BoardCoordinate, Piece>();
 
         public int BoardSize { get; private set; }
 
@@ -108,7 +108,7 @@ namespace Krieger
 
             if (piece == null)
             {
-                return MoveResult.No;
+                return MoveResult.Failed();
             }
 
             RemovePiece(start); // pick up the piece, we'll put it back if we have a problem
@@ -118,23 +118,21 @@ namespace Krieger
             if (!moveValidated)
             {
                 AddPiece(piece, start); // put it back where we found it
-                return MoveResult.No;
+                return MoveResult.Failed();
             }
 
-            var moveResult = MoveResult.Yes;
+            MoveResult result = MoveResult.Failed();
 
             var capturedPiece = GetPiece(end);
             if (capturedPiece != null)
             {
                 RemovePiece(end); // caputre the piece at the destination
-                moveResult = MoveResult.Capture;
             }
 
             AddPiece(piece, end); // move the piece
 
             if (IsPlayerInCheck(piece.Color)) // you can't leave yourself in check, put it all back
             {
-                moveResult = MoveResult.No;
                 RemovePiece(end);
                 AddPiece(piece, start);
 
@@ -143,8 +141,19 @@ namespace Krieger
                     AddPiece(capturedPiece, end);
                 }
             }
+            else
+            {
+                if (capturedPiece != null)
+                {
+                    result = MoveResult.Captured(capturedPiece);
+                }
+                else
+                {
+                    result = MoveResult.Succeeded();
+                }
+            }
 
-            return moveResult;
+            return result;
         }
 
         public bool IsPlayerInCheck(PlayerColor color)

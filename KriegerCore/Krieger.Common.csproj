@@ -47,7 +47,7 @@
     <Compile Include="Entities\Enums.cs" />
     <Compile Include="Entities\Game.cs" />
     <Compile Include="Entities\MoveAttempt.cs" />
-    <Compile Include="Entities\Referee.cs" />
+    <Compile Include="Entities\MoveResult.cs" />
     <Compile Include="Pieces\Bishop.cs" />
     <Compile Include="Pieces\King.cs" />
     <Compile Include="Pieces\Knight.cs" />

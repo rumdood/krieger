@@ -8,13 +8,6 @@ namespace Krieger
         Black
     }
 
-    public enum MoveResult
-    {
-        No,
-        Yes,
-        Capture
-    }
-
     public enum MoveDirection
     {
         Horizontal,
