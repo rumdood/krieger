@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IBoard.cs" />
+    <Compile Include="Contracts\ICommand.cs" />
+    <Compile Include="Contracts\IPath.cs" />
     <Compile Include="Contracts\IPiece.cs" />
     <Compile Include="Contracts\IReferee.cs" />
     <Compile Include="Entities\Board.cs" />
@@ -47,7 +49,10 @@
     <Compile Include="Entities\Enums.cs" />
     <Compile Include="Entities\Game.cs" />
     <Compile Include="Entities\MoveAttempt.cs" />
+    <Compile Include="Entities\MoveAttemptHandler.cs" />
     <Compile Include="Entities\MoveResult.cs" />
+    <Compile Include="Entities\Path.cs" />
+    <Compile Include="Entities\Referee.cs" />
     <Compile Include="Pieces\Bishop.cs" />
     <Compile Include="Pieces\King.cs" />
     <Compile Include="Pieces\Knight.cs" />

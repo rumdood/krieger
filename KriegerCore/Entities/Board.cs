@@ -23,16 +23,16 @@ namespace Krieger
             BoardSize = boardSize;
         }
 
-        protected bool isMoveBlocked(BoardCoordinate start, BoardCoordinate end)
+        public bool IsPathBlocked(Path path)
         {
-            var moveAttempt = new MoveAttempt(start, end);
-            var spaces = moveAttempt.GetSpacesForMove();
-
-            foreach (var square in spaces)
+            foreach (var square in path.GetSpaces())
             {
                 if (GetPiece(square) != null)
+                {
                     return true;
+                }
             }
+
             return false;
         }
 
@@ -78,84 +78,6 @@ namespace Krieger
             }
         }
 
-        protected bool isMovePossible(Piece piece, BoardCoordinate start, BoardCoordinate end)
-        {
-            var legalMoves = piece.GetLegalMovesFromCoordinate(start, BoardSize);
-
-            if (!legalMoves.Contains(end))
-            {
-                return false;
-            }
-
-            var pieceAtDesitination = GetPiece(end);
-
-            if (pieceAtDesitination != null && pieceAtDesitination.Color == piece.Color)
-            {
-                return false;
-            }
-
-            if (isMoveBlocked(start, end) && !(piece is Knight))
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        public MoveResult MovePiece(BoardCoordinate start, BoardCoordinate end)
-        {
-            var piece = GetPiece(start);
-
-            if (piece == null)
-            {
-                return MoveResult.Failed();
-            }
-
-            RemovePiece(start); // pick up the piece, we'll put it back if we have a problem
-
-            var moveValidated = isMovePossible(piece, start, end);
-
-            if (!moveValidated)
-            {
-                AddPiece(piece, start); // put it back where we found it
-                return MoveResult.Failed();
-            }
-
-            MoveResult result = MoveResult.Failed();
-
-            var capturedPiece = GetPiece(end);
-            if (capturedPiece != null)
-            {
-                RemovePiece(end); // caputre the piece at the destination
-            }
-
-            AddPiece(piece, end); // move the piece
-
-            if (IsPlayerInCheck(piece.Color)) // you can't leave yourself in check, put it all back
-            {
-                RemovePiece(end);
-                AddPiece(piece, start);
-
-                if (capturedPiece != null)
-                {
-                    AddPiece(capturedPiece, end);
-                }
-            }
-            else
-            {
-                if (capturedPiece != null)
-                {
-                    result = MoveResult.Captured(capturedPiece);
-                }
-                else
-                {
-                    result = MoveResult.Succeeded();
-                }
-            }
-
-            return result;
-        }
-
         public bool IsPlayerInCheck(PlayerColor color)
         {
             var kingLocation = getKingLocationByColor(color);
@@ -168,7 +90,8 @@ namespace Krieger
 
                 if (piece.GetLegalMovesFromCoordinate(location, BoardSize).Contains(kingLocation))
                 {
-                    if (!isMoveBlocked(location, kingLocation))
+                    var path = new Path(location, kingLocation);
+                    if (!IsPathBlocked(path))
                     {
                         return true;
                     }
@@ -176,6 +99,18 @@ namespace Krieger
             }
 
             return false;
+        }
+
+        public Board Clone()
+        {
+            var clone = new Board(this.BoardSize);
+
+            foreach (var key in _pieces.Keys)
+            {
+                clone.AddPiece(_pieces[key], key);
+            }
+
+            return clone;
         }
     }
 }

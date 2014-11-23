@@ -8,6 +8,6 @@ namespace Krieger
 {
     public interface IReferee
     {
-        
+        MoveResult TryMove(MoveAttempt attempt);
     }
 }
