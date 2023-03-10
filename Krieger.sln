@@ -1,58 +1,34 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krieger.Common", "KriegerCore\Krieger.Common.csproj", "{77874128-EFF0-4BE6-9231-C60F6A84813A}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D355EA2C-7389-4578-9E43-0B5EC84F0F75}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Spec", "Spec", "{0B97819A-5B17-4028-9E8C-31FB06F30D6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krieger.Core", "src\Krieger.Core\Krieger.Core.csproj", "{DF14C072-5435-47F3-B2DD-C66F6923350C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4B91AC6E-1A7E-4A9D-B81F-B09CBE7D8DA8}"
-	ProjectSection(SolutionItems) = preProject
-		.gitattributes = .gitattributes
-		.gitignore = .gitignore
-		LICENSE = LICENSE
-		README.md = README.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Use Cases", "Use Cases", "{43D5FAA6-3776-44F5-92F0-C70C873EED8D}"
-	ProjectSection(SolutionItems) = preProject
-		Architecture\UseCases\Krieger_UseCase_CreateGame.PNG = Architecture\UseCases\Krieger_UseCase_CreateGame.PNG
-		Architecture\UseCases\Krieger_UseCase_MovePiece.PNG = Architecture\UseCases\Krieger_UseCase_MovePiece.PNG
-		Architecture\UseCases\Krieger_UseCase_PawnTry.PNG = Architecture\UseCases\Krieger_UseCase_PawnTry.PNG
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Architecture", "Architecture", "{F06BF052-5821-4420-A2E4-C460F6173536}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System Views", "System Views", "{537CB724-A8AC-4150-85D0-1094E6706DCC}"
-	ProjectSection(SolutionItems) = preProject
-		Architecture\System Views\Attempt_Move.PNG = Architecture\System Views\Attempt_Move.PNG
-		Architecture\System Views\Attempt_Move_Boundaries.PNG = Architecture\System Views\Attempt_Move_Boundaries.PNG
-		Architecture\System Views\Create_Load_Join_Game.PNG = Architecture\System Views\Create_Load_Join_Game.PNG
-		Architecture\System Views\Full_System_Interaction.PNG = Architecture\System Views\Full_System_Interaction.PNG
-		Architecture\System Views\System Static View.PNG = Architecture\System Views\System Static View.PNG
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KriegerTests", "KriegerTests\KriegerTests.csproj", "{4F27F102-4CBF-4EC4-A47A-8A852B7709C4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "src\UnitTests\UnitTests.csproj", "{4AC472C9-A62D-4FC4-8BA9-93F6C58E1C74}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{77874128-EFF0-4BE6-9231-C60F6A84813A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{77874128-EFF0-4BE6-9231-C60F6A84813A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{77874128-EFF0-4BE6-9231-C60F6A84813A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{77874128-EFF0-4BE6-9231-C60F6A84813A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F27F102-4CBF-4EC4-A47A-8A852B7709C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F27F102-4CBF-4EC4-A47A-8A852B7709C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F27F102-4CBF-4EC4-A47A-8A852B7709C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F27F102-4CBF-4EC4-A47A-8A852B7709C4}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF14C072-5435-47F3-B2DD-C66F6923350C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF14C072-5435-47F3-B2DD-C66F6923350C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF14C072-5435-47F3-B2DD-C66F6923350C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF14C072-5435-47F3-B2DD-C66F6923350C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC472C9-A62D-4FC4-8BA9-93F6C58E1C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC472C9-A62D-4FC4-8BA9-93F6C58E1C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC472C9-A62D-4FC4-8BA9-93F6C58E1C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC472C9-A62D-4FC4-8BA9-93F6C58E1C74}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{43D5FAA6-3776-44F5-92F0-C70C873EED8D} = {F06BF052-5821-4420-A2E4-C460F6173536}
-		{537CB724-A8AC-4150-85D0-1094E6706DCC} = {F06BF052-5821-4420-A2E4-C460F6173536}
+		{DF14C072-5435-47F3-B2DD-C66F6923350C} = {D355EA2C-7389-4578-9E43-0B5EC84F0F75}
+		{4AC472C9-A62D-4FC4-8BA9-93F6C58E1C74} = {D355EA2C-7389-4578-9E43-0B5EC84F0F75}
 	EndGlobalSection
 EndGlobal
