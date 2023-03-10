@@ -1,5 +1,4 @@
-﻿using System.Net.NetworkInformation;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Krieger;
 
 namespace UnitTests;
@@ -48,12 +47,12 @@ public class MoveTests
     [Theory]
     [InlineData("d4", 42, 44, 37, 21, 12, 10, 33, 17)]
     [InlineData("b7", 59, 43, 32, 34)]
-    public void CanExecuteKnightMoves(string startLocation, params int[] exptected)
+    public void CanExecuteKnightMoves(string startLocation, params int[] expected)
     {
         // D4 = X:3, Y:3 = Index:27
         ExecuteMoveTest(new BoardCoordinate(startLocation), PlayerColor.Black, PieceNotation.Knight, (_) =>
         {
-            return exptected.Select(x => new BoardCoordinate(x));
+            return expected.Select(x => new BoardCoordinate(x));
         });
     }
 
