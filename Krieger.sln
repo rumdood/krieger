@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D355EA2C-738
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krieger.Core", "src\Krieger.Core\Krieger.Core.csproj", "{DF14C072-5435-47F3-B2DD-C66F6923350C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "src\UnitTests\UnitTests.csproj", "{4AC472C9-A62D-4FC4-8BA9-93F6C58E1C74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +22,13 @@ Global
 		{DF14C072-5435-47F3-B2DD-C66F6923350C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF14C072-5435-47F3-B2DD-C66F6923350C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF14C072-5435-47F3-B2DD-C66F6923350C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AC472C9-A62D-4FC4-8BA9-93F6C58E1C74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AC472C9-A62D-4FC4-8BA9-93F6C58E1C74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AC472C9-A62D-4FC4-8BA9-93F6C58E1C74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AC472C9-A62D-4FC4-8BA9-93F6C58E1C74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DF14C072-5435-47F3-B2DD-C66F6923350C} = {D355EA2C-7389-4578-9E43-0B5EC84F0F75}
+		{4AC472C9-A62D-4FC4-8BA9-93F6C58E1C74} = {D355EA2C-7389-4578-9E43-0B5EC84F0F75}
 	EndGlobalSection
 EndGlobal
